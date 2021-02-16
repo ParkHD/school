@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Protistis">
+      <UniqueIdentifier>{1c9d7ec8-9eee-4e7e-8714-42f0ace2c208}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Protistis\Protophytes">
+      <UniqueIdentifier>{c7076bf7-3423-47e4-bb10-28ba8857542e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Protistis\Protophytes\Seaweed">
+      <UniqueIdentifier>{71ef67ce-01d1-4872-ad45-659cb631e556}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Protistis\Protophytes\Seaweed\LandPlants">
+      <UniqueIdentifier>{aeb1599f-fa22-454d-8aaf-2699022b5863}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Protistis\Vertebreates">
+      <UniqueIdentifier>{46138cf0-5628-47e4-9265-8a1bc87618a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Protistis\Vertebreates\Fishes">
+      <UniqueIdentifier>{aeb89620-f921-4c7c-9dad-8bebba550579}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Protistis\Vertebreates\Fishes\Reptilles">
+      <UniqueIdentifier>{6340dd12-a2e0-4695-bdb6-9dedcdc4dec5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Protistis\Vertebreates\Fishes\Reptilles\Birds">
+      <UniqueIdentifier>{6beea5e8-4f13-49bc-b616-08ce2671f255}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Protistis\Vertebreates\Fishes\Mammals">
+      <UniqueIdentifier>{e966c3a9-d93f-4d35-abda-8c713f58c21f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Protistis\Vertebreates\Fishes\Amphilblans">
+      <UniqueIdentifier>{e2edc2ee-523c-4273-ac26-6a05c02e162e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Protists.cpp">
+      <Filter>Source Files\Protistis</Filter>
+    </ClCompile>
+    <ClCompile Include="LandPlants.cpp">
+      <Filter>Source Files\Protistis\Protophytes\Seaweed\LandPlants</Filter>
+    </ClCompile>
+    <ClCompile Include="Seaweed.cpp">
+      <Filter>Source Files\Protistis\Protophytes\Seaweed</Filter>
+    </ClCompile>
+    <ClCompile Include="Protophytes.cpp">
+      <Filter>Source Files\Protistis\Protophytes</Filter>
+    </ClCompile>
+    <ClCompile Include="Vertebrates.cpp">
+      <Filter>Source Files\Protistis\Vertebreates</Filter>
+    </ClCompile>
+    <ClCompile Include="Fishes.cpp">
+      <Filter>Source Files\Protistis\Vertebreates\Fishes</Filter>
+    </ClCompile>
+    <ClCompile Include="Reptilles.cpp">
+      <Filter>Source Files\Protistis\Vertebreates\Fishes\Reptilles</Filter>
+    </ClCompile>
+    <ClCompile Include="Birds.cpp">
+      <Filter>Source Files\Protistis\Vertebreates\Fishes\Reptilles\Birds</Filter>
+    </ClCompile>
+    <ClCompile Include="Mammals.cpp">
+      <Filter>Source Files\Protistis\Vertebreates\Fishes\Mammals</Filter>
+    </ClCompile>
+    <ClCompile Include="Amphilblans.cpp">
+      <Filter>Source Files\Protistis\Vertebreates\Fishes\Amphilblans</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Animal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Skeleton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Protists.h">
+      <Filter>Source Files\Protistis</Filter>
+    </ClInclude>
+    <ClInclude Include="LandPlants.h">
+      <Filter>Source Files\Protistis\Protophytes\Seaweed\LandPlants</Filter>
+    </ClInclude>
+    <ClInclude Include="Seaweed.h">
+      <Filter>Source Files\Protistis\Protophytes\Seaweed</Filter>
+    </ClInclude>
+    <ClInclude Include="Protophytes.h">
+      <Filter>Source Files\Protistis\Protophytes</Filter>
+    </ClInclude>
+    <ClInclude Include="Vertebrates.h">
+      <Filter>Source Files\Protistis\Vertebreates</Filter>
+    </ClInclude>
+    <ClInclude Include="Fishes.h">
+      <Filter>Source Files\Protistis\Vertebreates\Fishes</Filter>
+    </ClInclude>
+    <ClInclude Include="Reptilles.h">
+      <Filter>Source Files\Protistis\Vertebreates\Fishes\Reptilles</Filter>
+    </ClInclude>
+    <ClInclude Include="Birds.h">
+      <Filter>Source Files\Protistis\Vertebreates\Fishes\Reptilles\Birds</Filter>
+    </ClInclude>
+    <ClInclude Include="Mammals.h">
+      <Filter>Source Files\Protistis\Vertebreates\Fishes\Mammals</Filter>
+    </ClInclude>
+    <ClInclude Include="Amphilblans.h">
+      <Filter>Source Files\Protistis\Vertebreates\Fishes\Amphilblans</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Animal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Skeleton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
