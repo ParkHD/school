@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\_GameController">
+      <UniqueIdentifier>{8b2d4b41-d16a-4292-b367-83bf2e8b3bd3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scene">
+      <UniqueIdentifier>{d8a397d7-1074-49d5-a098-af49e8a16b72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scene\Menu">
+      <UniqueIdentifier>{aeb918ab-38fe-4dc4-ba47-eabe0936897f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scene\Logo">
+      <UniqueIdentifier>{e31c5bfe-5bed-4422-b6ee-9f3c3e62df6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scene\Stage">
+      <UniqueIdentifier>{f2510dc0-c189-4705-aa71-88da4cb41bed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\_GameController\SceneManager">
+      <UniqueIdentifier>{9ed1f878-8ca4-46c7-96ff-92072be1d4f2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Include.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Logo.h">
+      <Filter>Source Files\Scene\Logo</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Source Files\Scene\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>Source Files\Scene\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Source Files\_GameController\SceneManager</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Logo.cpp">
+      <Filter>Source Files\Scene\Logo</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source Files\Scene\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>Source Files\Scene\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="CMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Source Files\_GameController\SceneManager</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
