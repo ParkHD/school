@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\00GameManager">
+      <UniqueIdentifier>{dbe836c1-c13f-46da-ac27-32dd7ff86f56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\01Scene">
+      <UniqueIdentifier>{0e6d8e6f-1109-4730-892a-f3f67fcfcf72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\01Scene\00Logo">
+      <UniqueIdentifier>{c96a4d80-11ee-48e5-bb36-ac6218b7ea28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\01Scene\01Menu">
+      <UniqueIdentifier>{f5cf8b74-a708-4acb-aa2a-f4f8b6d05143}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\01Scene\02Stage">
+      <UniqueIdentifier>{4615d8c0-0775-49b5-853f-78b17b974f00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\00GameManager\01SceneManager">
+      <UniqueIdentifier>{9fb00fd9-7e7f-4d2b-bee8-b8a74e109dd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\00GameManager\02WindowController">
+      <UniqueIdentifier>{0b9cf965-4ecf-4dda-8b73-b483927383a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\02Obj">
+      <UniqueIdentifier>{639cee75-285d-41ca-a0ba-40a9250f5741}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\02Obj\00Player">
+      <UniqueIdentifier>{3cd39787-b63f-405c-b529-616e09fc868e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\02Obj\01Enemy">
+      <UniqueIdentifier>{6c6f549e-cc0d-452b-a83a-8a81fb64fd3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\02Obj\02NPC">
+      <UniqueIdentifier>{3d89dbbc-4e23-48a0-ba1a-6820e44c08d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\00GameManager\03DoubleBuffer">
+      <UniqueIdentifier>{5675044f-349f-47b7-995e-8d30e8dd696d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files\01Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>Source Files\01Scene\02Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source Files\01Scene\01Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Logo.cpp">
+      <Filter>Source Files\01Scene\00Logo</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Source Files\00GameManager\01SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Obj.cpp">
+      <Filter>Source Files\02Obj</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\02Obj\00Player</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowController.cpp">
+      <Filter>Source Files\00GameManager\02WindowController</Filter>
+    </ClCompile>
+    <ClCompile Include="DoubleBuffer.cpp">
+      <Filter>Source Files\00GameManager\03DoubleBuffer</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Include.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Source Files\01Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>Source Files\01Scene\02Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Source Files\01Scene\01Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Logo.h">
+      <Filter>Source Files\01Scene\00Logo</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Source Files\00GameManager\01SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj.h">
+      <Filter>Source Files\02Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Source Files\02Obj\00Player</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowController.h">
+      <Filter>Source Files\00GameManager\02WindowController</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleBuffer.h">
+      <Filter>Source Files\00GameManager\03DoubleBuffer</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
