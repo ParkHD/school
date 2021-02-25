@@ -1,0 +1,20 @@
+﻿  CMain.cpp
+  CollisionManager.cpp
+  DoubleBuffer.cpp
+C:\Users\G-18\Desktop\Game (2)\Game\DoubleBuffer.cpp(60,18): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\G-18\Desktop\Game (2)\Game\DoubleBuffer.cpp(60,23): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\G-18\Desktop\Game (2)\Game\DoubleBuffer.cpp(68,65): warning C4267: 'argument': conversion from 'size_t' to 'DWORD', possible loss of data
+  Enemy.cpp
+  Game.cpp
+  Logo.cpp
+  Menu.cpp
+  Obj.cpp
+  ObjectFactory.cpp
+  Player.cpp
+  Scene.cpp
+  SceneManager.cpp
+  Stage.cpp
+  WindowController.cpp
+  Generating Code...
+C:\Users\G-18\Desktop\Game (2)\Game\Enemy.cpp(83): warning C4715: 'Enemy::GetRandomDir': not all control paths return a value
+  Game.vcxproj -> C:\Users\G-18\Desktop\Game (2)\x64\Debug\Game.exe
