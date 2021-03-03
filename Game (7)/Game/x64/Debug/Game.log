@@ -1,0 +1,7 @@
+﻿  CollisionManager.cpp
+C:\Users\G-18\Desktop\Game (7)\Game\Obj.h(11,27): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\G-18\Desktop\Game (7)\Game\Obj.h(11,35): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\G-18\Desktop\Game (7)\Game\Obj.h(11,46): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\G-18\Desktop\Game (7)\Game\Obj.h(11,65): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\G-18\Desktop\Game (7)\Game\CollisionManager.cpp(3,46): warning C4356: 'Singleton<CollisionManager>::instance': static data member cannot be initialized via derived class
+  Game.vcxproj -> C:\Users\G-18\Desktop\Game (7)\x64\Debug\Game.exe
