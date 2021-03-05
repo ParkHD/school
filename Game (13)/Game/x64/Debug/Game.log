@@ -1,0 +1,3 @@
+﻿  Player.cpp
+C:\Users\G-18\Desktop\Game (13)\Game\Player.cpp(43,17): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Game.vcxproj -> C:\Users\G-18\Desktop\Game (13)\x64\Debug\Game.exe
