@@ -1,0 +1,7 @@
+﻿  Player.cpp
+C:\Users\G-18\Desktop\Game (12)\Game\Obj.h(12,27): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\G-18\Desktop\Game (12)\Game\Obj.h(12,34): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\G-18\Desktop\Game (12)\Game\Obj.h(12,45): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\G-18\Desktop\Game (12)\Game\Obj.h(12,64): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\G-18\Desktop\Game (12)\Game\Player.cpp(51): warning C4715: 'Player::collision': not all control paths return a value
+  Game.vcxproj -> C:\Users\G-18\Desktop\Game (12)\x64\Debug\Game.exe
