@@ -139,11 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Collision.h" />
     <ClInclude Include="DoubleBuffer.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="Include.h" />
+    <ClInclude Include="KeyManager.h" />
     <ClInclude Include="Logo.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="ObjectPoolManager.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
@@ -152,10 +156,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CMain.cpp" />
+    <ClCompile Include="Collision.cpp" />
     <ClCompile Include="DoubleBuffer.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="KeyManager.cpp" />
     <ClCompile Include="Logo.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Object.cpp" />
+    <ClCompile Include="ObjectPoolManager.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />

@@ -34,14 +34,29 @@
     <Filter Include="소스 파일\GamaManager\01WindowController">
       <UniqueIdentifier>{b8e7bdfa-e413-406e-8eec-357b790b6f31}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\GamaManager\03Object">
-      <UniqueIdentifier>{ab86300f-3f1b-4717-bfb9-37a438b15e0a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\GamaManager\03Object\Player">
-      <UniqueIdentifier>{d6129207-f523-40da-a482-23cf61a07028}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\GamaManager\02DuffleBuffer">
       <UniqueIdentifier>{38167fa3-767e-490b-a0e2-7a5edb9909b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03Object">
+      <UniqueIdentifier>{ab86300f-3f1b-4717-bfb9-37a438b15e0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03Object\Player">
+      <UniqueIdentifier>{d6129207-f523-40da-a482-23cf61a07028}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GamaManager\03ObjectPoolManager">
+      <UniqueIdentifier>{3bbf85a3-754f-479e-b3f5-fab1a201e48f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GamaManager\04Collision">
+      <UniqueIdentifier>{4a864f8f-30e9-4014-a9e1-2ea4d1ec208f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03Object\Enemy">
+      <UniqueIdentifier>{7270103c-de34-4b2c-a3d7-0ddea30e66f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GamaManager\05Colli">
+      <UniqueIdentifier>{4fdc9a3b-9dbd-417a-bc6e-4e727d361c22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GamaManager\05KeyManager">
+      <UniqueIdentifier>{1f587053-2974-4f80-b6b9-c09978b40b12}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -67,13 +82,25 @@
       <Filter>소스 파일\GamaManager\01WindowController</Filter>
     </ClInclude>
     <ClInclude Include="Object.h">
-      <Filter>소스 파일\GamaManager\03Object</Filter>
+      <Filter>소스 파일\03Object</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>소스 파일\GamaManager\03Object\Player</Filter>
+      <Filter>소스 파일\03Object\Player</Filter>
     </ClInclude>
     <ClInclude Include="DoubleBuffer.h">
       <Filter>소스 파일\GamaManager\02DuffleBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectPoolManager.h">
+      <Filter>소스 파일\GamaManager\03ObjectPoolManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>소스 파일\GamaManager\04Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>소스 파일\03Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyManager.h">
+      <Filter>소스 파일\GamaManager\05KeyManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -99,13 +126,25 @@
       <Filter>소스 파일\GamaManager\01WindowController</Filter>
     </ClCompile>
     <ClCompile Include="Object.cpp">
-      <Filter>소스 파일\GamaManager\03Object</Filter>
+      <Filter>소스 파일\03Object</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>소스 파일\GamaManager\03Object\Player</Filter>
+      <Filter>소스 파일\03Object\Player</Filter>
     </ClCompile>
     <ClCompile Include="DoubleBuffer.cpp">
       <Filter>소스 파일\GamaManager\02DuffleBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectPoolManager.cpp">
+      <Filter>소스 파일\GamaManager\03ObjectPoolManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>소스 파일\GamaManager\04Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>소스 파일\03Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyManager.cpp">
+      <Filter>소스 파일\GamaManager\05KeyManager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

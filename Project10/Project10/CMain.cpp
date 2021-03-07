@@ -1,6 +1,6 @@
 #include"SceneManager.h"
 #include"DoubleBuffer.h"
-
+#include"KeyManager.h"
 int main()
 {
 	DoubleBuffer::Instance()->InitBuffer();
@@ -8,15 +8,14 @@ int main()
 
 	while (true)
 	{
-		system("cls");
+		
+		KeyManager::Instance()->CheckKey();
 
 		DoubleBuffer::Instance()->FlipBuffer();
-
 		DoubleBuffer::Instance()->ClearBuffer();
 
 		SceneManager::Instance()->Progress();
 		SceneManager::Instance()->Render();
-		
 	}
 	SceneManager::Instance()->Release();
 	DoubleBuffer::Instance()->DestroyBuffer();

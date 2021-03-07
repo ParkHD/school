@@ -2,6 +2,7 @@
 #include<Windows.h>
 class Scene
 {
+
 public:
 	virtual void Initialize() PURE;
 	virtual void Progress() PURE;

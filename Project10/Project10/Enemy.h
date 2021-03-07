@@ -1,29 +1,23 @@
 #pragma once
 #include "Object.h"
-class Player :
+class Enemy :
     public Object
 {
 private:
-    const char* p_shape[2];
-
+    const char* e_shape[2];
+private:
     float t;
     int h;
     float v0;
     float G = 9.8f;
 
-
-    bool jump;
     bool isGrounded;
-    bool isJump;
-
-    int count = 0;
 public:
     virtual void Initialize();
     virtual void Progress();
     virtual void Render();
     virtual void Release();
-
-    void Jump();
-    void Gravity();
+public:
+    int getRandomDir();
 };
 
