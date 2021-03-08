@@ -10,12 +10,23 @@ void ObjectPoolManager::Initialize()
 
 	enemy = new Enemy;
 	enemy->Initialize();
+
+	for (int i = 0; i < 5; i++)
+	{
+		bullet[i] = new Bullet;
+		bullet[i]->Initialize();
+	}
+
 }
 
 void ObjectPoolManager::Progress()
 {
 	player->Progress();
 	enemy->Progress();
+	for (int i = 0; i < 5; i++)
+	{
+		bullet[i]->Progress();
+	}
 }
 
 void ObjectPoolManager::Render()
@@ -32,7 +43,11 @@ void ObjectPoolManager::Render()
 	}
 	player->Render();
 	enemy->Render();
-
+	
+	for (int i = 0; i < 5; i++)
+	{
+		bullet[i]->Render();
+	}
 }
 
 void ObjectPoolManager::Release()
@@ -44,4 +59,11 @@ void ObjectPoolManager::Release()
 	enemy->Release();
 	delete enemy;
 	enemy = nullptr;
+	for (int i = 0; i < 5; i++)
+	{
+		bullet[i]->Release();
+		delete bullet[i];
+		bullet[i] = nullptr;	
+	}
+
 }

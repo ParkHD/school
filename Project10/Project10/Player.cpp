@@ -40,19 +40,13 @@ void Player::Progress()
 	}
 	if (dwKey & KEY_LEFT )
 	{
-		//if (!isGrounded)									// 중력으로 떨어질시
-		//{
-		//	y++;
-		//}
+		bulletDir = 0;
 		x--;
 		Collision(LEFT);
 	}
 	if (dwKey & KEY_RIGHT)
 	{
-		//if (!isGrounded)									// 중력으로 떨어질시
-		//{
-		//	y++;
-		//}
+		bulletDir = 1;
 		x++;
 		Collision(RIGHT);
 	}
@@ -61,6 +55,31 @@ void Player::Progress()
 	{
 		jump = true;
  		t = 0;
+	}
+
+	if (dwKey & KEY_RETURN)
+	{
+		for (int i = 0; i < 5; i++)
+		{
+			if (!(ObjectPoolManager::Instance()->bullet[i]->act))
+			{
+				switch (bulletDir)
+				{
+				case 0:
+					ObjectPoolManager::Instance()->bullet[i]->x = x - 1;
+					ObjectPoolManager::Instance()->bullet[i]->y = y;
+					ObjectPoolManager::Instance()->bullet[i]->bulletDir = 0;
+					break;
+				case 1:
+					ObjectPoolManager::Instance()->bullet[i]->x = x + 2;
+					ObjectPoolManager::Instance()->bullet[i]->y = y;
+					ObjectPoolManager::Instance()->bullet[i]->bulletDir = 1;
+					break;
+				}
+				ObjectPoolManager::Instance()->bullet[i]->act = true;
+				break;
+			}
+		}
 	}
 
 
@@ -152,6 +171,11 @@ void Player::Progress()
 		isGrounded = false;
 	}
 	
+
+	if (y > 48)
+	{
+		y = 3;
+	}
 }
 
 void Player::Render()

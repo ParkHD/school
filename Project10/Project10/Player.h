@@ -16,7 +16,8 @@ private:
     bool isGrounded;
     bool isJump;
 
-    int count = 0;
+    int BulletCount = 5;
+
 public:
     virtual void Initialize();
     virtual void Progress();

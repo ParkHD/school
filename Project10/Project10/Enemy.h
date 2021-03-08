@@ -12,6 +12,11 @@ private:
     float G = 9.8f;
 
     bool isGrounded;
+
+    int step;
+    int maxStep;
+    int dir;
+
 public:
     virtual void Initialize();
     virtual void Progress();
@@ -19,5 +24,6 @@ public:
     virtual void Release();
 public:
     int getRandomDir();
+    DIR GetRandomDirection();
 };
 

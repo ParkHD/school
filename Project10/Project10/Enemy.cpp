@@ -2,6 +2,7 @@
 #include "Collision.h"
 #include "DoubleBuffer.h"
 #include "ObjectPoolManager.h"
+
 void Enemy::Initialize()
 {
 	x = 35;
@@ -15,13 +16,12 @@ void Enemy::Initialize()
 	h = y;
 	v0 = 0.0f;
 
+	step = 0;
+	maxStep = 0;
 }
 
 void Enemy::Progress()
 {
-	t += 0.03f;
-	float h = 0.5 * G * t * t;
-	y += h;
 	
 	if (Collision::Instance()->CollisionCheck(this->GetRect(), ObjectPoolManager::Instance()->player->GetRect()))
 	{
@@ -29,7 +29,7 @@ void Enemy::Progress()
 	}
 
 	if (ObjectPoolManager::Instance()->CheckMap(x, y + 2) == 1
-		|| ObjectPoolManager::Instance()->CheckMap(x + 1, y + 2) == 1)	 // 땅에 있을때 
+		|| ObjectPoolManager::Instance()->CheckMap(x + 1, y + 2) == 1)		// 땅에 있을때 
 	{
 		t = 0;
 		isGrounded = true;
@@ -44,6 +44,14 @@ void Enemy::Progress()
 		t += 0.03f;
 		float h = 0.5 * G * t * t;
 		y += h;
+		if (h > 2)																// 중력 수치제한
+		{
+			h = 2;
+		}
+		else if (h < -2)
+		{
+			h = -2;
+		}
 	}
 	while (ObjectPoolManager::Instance()->CheckMap(x, y) == 1					// 땅에 쳐박힐때
 		|| ObjectPoolManager::Instance()->CheckMap(x, y + 1) == 1
@@ -52,6 +60,50 @@ void Enemy::Progress()
 	{
 		y--;
 	}
+
+
+
+	step++;
+	if (step > maxStep)
+	{
+		maxStep = rand() % 10 + 5;
+		dir = GetRandomDirection();
+		step = 0;
+	}
+
+	if (isGrounded)
+	{
+		switch (dir)
+		{
+		case 0:
+			if (ObjectPoolManager::Instance()->CheckMap(x - 1, y) == 1)
+			{
+				break;
+			}
+			else
+			{
+				x--;
+				Collision(LEFT);
+			}
+
+			break;
+		case 1:
+			if (ObjectPoolManager::Instance()->CheckMap(x + 2 , y) == 1)
+			{
+				break;
+			}
+			else
+			{
+				x++;
+				Collision(RIGHT);
+			}
+
+			break;
+		}
+	}
+
+	if (y > 48)															// 구멍 떨어졌을때
+		y = 3;
 }
 
 void Enemy::Render()
@@ -72,6 +124,12 @@ void Enemy::Release()
 
 }
 
+DIR Enemy::GetRandomDirection()
+{
+	int randValue = rand() % 2;
+
+	return (DIR)randValue;
+}
 
 
 

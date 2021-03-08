@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="DoubleBuffer.h" />
     <ClInclude Include="Enemy.h" />
@@ -155,6 +156,7 @@
     <ClInclude Include="WindowController.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="CMain.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="DoubleBuffer.cpp" />

@@ -1,0 +1,6 @@
+﻿  Bullet.cpp
+C:\Users\G-18\Desktop\school-main (2)\Project10\Project10\Object.h(25,22): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\G-18\Desktop\school-main (2)\Project10\Project10\Object.h(25,25): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\G-18\Desktop\school-main (2)\Project10\Project10\Object.h(25,30): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\G-18\Desktop\school-main (2)\Project10\Project10\Object.h(25,37): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+  Project10.vcxproj -> C:\Users\G-18\Desktop\school-main (2)\Project10\x64\Debug\Project10.exe

@@ -58,6 +58,9 @@
     <Filter Include="소스 파일\GamaManager\05KeyManager">
       <UniqueIdentifier>{1f587053-2974-4f80-b6b9-c09978b40b12}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\03Object\Bullet">
+      <UniqueIdentifier>{464faf0a-d6aa-4794-928a-728295caaa8a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h">
@@ -102,6 +105,9 @@
     <ClInclude Include="KeyManager.h">
       <Filter>소스 파일\GamaManager\05KeyManager</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>소스 파일\03Object\Bullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Scene.cpp">
@@ -145,6 +151,9 @@
     </ClCompile>
     <ClCompile Include="KeyManager.cpp">
       <Filter>소스 파일\GamaManager\05KeyManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>소스 파일\03Object\Bullet</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

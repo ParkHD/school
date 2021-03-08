@@ -8,8 +8,10 @@ public:
 	Color color;
 	bool act = true;
 
-	bool rand;
-	
+	int bulletDir;
+
+
+	DIR dir;
 
 public:
 	virtual void Initialize() PURE;

@@ -24,7 +24,6 @@ int Object::Collision(DIR dir)
 					break;
 				case DOWN:
 					return y--;
-					rand = true;
 					break;
 				case RIGHT:
 					return x--;
