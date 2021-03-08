@@ -10,6 +10,7 @@ public:
 
 	int bulletDir;
 
+	int shape_size;
 
 	DIR dir;
 

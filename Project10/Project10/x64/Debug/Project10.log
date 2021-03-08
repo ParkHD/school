@@ -1,6 +1,8 @@
-﻿  Bullet.cpp
-C:\Users\G-18\Desktop\school-main (2)\Project10\Project10\Object.h(25,22): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-C:\Users\G-18\Desktop\school-main (2)\Project10\Project10\Object.h(25,25): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-C:\Users\G-18\Desktop\school-main (2)\Project10\Project10\Object.h(25,30): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-C:\Users\G-18\Desktop\school-main (2)\Project10\Project10\Object.h(25,37): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-  Project10.vcxproj -> C:\Users\G-18\Desktop\school-main (2)\Project10\x64\Debug\Project10.exe
+﻿  Enemy.cpp
+C:\Users\guseh\Downloads\school-main\Project10\Project10\Object.h(26,22): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\guseh\Downloads\school-main\Project10\Project10\Object.h(26,25): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\guseh\Downloads\school-main\Project10\Project10\Object.h(26,30): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\guseh\Downloads\school-main\Project10\Project10\Object.h(26,37): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\guseh\Downloads\school-main\Project10\Project10\Enemy.cpp(73,13): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\guseh\Downloads\school-main\Project10\Project10\Enemy.cpp(74,11): warning C4244: '+=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Project10.vcxproj -> C:\Users\guseh\Downloads\school-main\Project10\x64\Debug\Project10.exe

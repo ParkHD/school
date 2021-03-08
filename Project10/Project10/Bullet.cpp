@@ -18,27 +18,25 @@ void Bullet::Initialize()
 
 void Bullet::Progress()
 {
-	count++;
-	if (count > 20)
+
+	if (act)
 	{
-		if (act)
+		switch (bulletDir)
 		{
-			switch (bulletDir)
-			{
-			case 0:
-				x--;
+		case 0:
+			x--;
 
-				break;
-			case 1:
-				x++;
-				break;
-			}
-
+			break;
+		case 1:
+			x++;
+			break;
 		}
-		count = 0;
+		if (ObjectPoolManager::Instance()->CheckMap(x, y) == 1)
+			act = false;
 	}
-	if (ObjectPoolManager::Instance()->CheckMap(x, y) == 1)
-		act = false;
+
+
+
 
 }
 

@@ -1,10 +1,13 @@
 #pragma once
 #include "Object.h"
+#include <vector>
 class Enemy :
     public Object
 {
 private:
-    const char* e_shape[2];
+    int size;
+    vector<string> arr;
+    const char* e_shape[3];
 private:
     float t;
     int h;
@@ -17,6 +20,8 @@ private:
     int maxStep;
     int dir;
 
+    int timeStep;
+    bool bubble;
 public:
     virtual void Initialize();
     virtual void Progress();
