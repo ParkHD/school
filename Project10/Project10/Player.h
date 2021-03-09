@@ -18,6 +18,14 @@ private:
 
     int BulletCount = 5;
 
+    int health;
+    const char* h_shape;
+
+    int count;
+
+    const char* test;
+
+    bool stun;
 public:
     virtual void Initialize();
     virtual void Progress();

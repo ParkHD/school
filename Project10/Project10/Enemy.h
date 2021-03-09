@@ -7,7 +7,7 @@ class Enemy :
 private:
     int size;
     vector<string> arr;
-    const char* e_shape[3];
+    const char* e_shape[2];
 private:
     float t;
     int h;
@@ -21,7 +21,11 @@ private:
     int dir;
 
     int timeStep;
+
     bool bubble;
+    int bubbleDir;
+
+    int boom;
 public:
     virtual void Initialize();
     virtual void Progress();

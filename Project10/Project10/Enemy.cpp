@@ -9,10 +9,9 @@ void Enemy::Initialize()
 	y = 35;
 	color = π‡¿∫ª°∞£ªˆ;
 
-	shape_size = 3;
+	shape_size = 2;
 	e_shape[0] = "°‡°‡";
 	e_shape[1] = "°‡°‡";
-	e_shape[2] = "§±    ";
 
 	t = 0.0f;
 	h = y;
@@ -25,19 +24,19 @@ void Enemy::Initialize()
 	timeStep = 0;
 
 	bubble = false;
+	bubbleDir = 0;
+
+	boom = 0;
 }
 
 void Enemy::Progress()
 {
 	timeStep++;
-	if (timeStep > 1) 
+	if (timeStep > 10) 
 	{
 		if (act && !bubble)
 		{
-			if (Collision::Instance()->CollisionCheck(this->GetRect(), ObjectPoolManager::Instance()->player->GetRect()))
-			{
-				act = false;
-			}
+			
 			for (int i = 0; i < 5; i++)
 			{
 				if (ObjectPoolManager::Instance()->bullet[i]->x >= x
@@ -45,13 +44,22 @@ void Enemy::Progress()
 					&& ObjectPoolManager::Instance()->bullet[i]->y >= y
 					&& ObjectPoolManager::Instance()->bullet[i]->y  <= y + 1)
 				{
-					/*act = false;
-					ObjectPoolManager::Instance()->bullet[i]->act = false;*/
-					
-					e_shape[0] = " °‹°‹°‹";
-					e_shape[1] = "°‹°‹°‹°‹";
-					e_shape[2] = " °‹°‹°‹";
+
+					e_shape[0] = " °‹°‹";
+					e_shape[1] = " °‹°‹";
+
+					bubbleDir = rand() % 2;
 					bubble = true;
+
+					color = π‡¿∫≥Î∂ıªˆ;
+
+					switch (bubbleDir)
+					{
+					case 0:
+						break;
+					case 1:
+						break;
+					}
 				}
 			}
 	
@@ -91,7 +99,7 @@ void Enemy::Progress()
 
 
 
-			step++;
+			/*step++;
 			if (step > maxStep)
 			{
 				maxStep = rand() % 10 + 5;
@@ -125,24 +133,80 @@ void Enemy::Progress()
 						x++;
 						Collision(RIGHT);
 					}
-
 					break;
 				}
-			}
+			}*/
 
 			if (y > 48)															// ±∏∏€ ∂≥æÓ¡≥¿ª∂ß
 				y = 3;
 
-			timeStep = 0;
+			
 		}
-		else if (!act)
+		//else if (!act)														// ¡◊æ˙¿ª∂ß
+		//{
+		//	x = 3;
+		//	y = 3;
+		//	act = true;
+		//}
+
+
+
+		if (bubble)
 		{
-			x = 3;
-			y = 3;
-			act = true;
-		}
-	}
+			boom++;
+
+			if (ObjectPoolManager::Instance()->CheckMap(x, y - 1) == 1)
+			{
+				if (bubbleDir == 0)
+				{
+					x--;
+					if (ObjectPoolManager::Instance()->CheckMap(x, y) == 1)
+					{
+						x++;
+					}
+				}
+				else if (bubbleDir == 1)
+				{
+					x++;
+					if (ObjectPoolManager::Instance()->CheckMap(x + 1, y) == 1)
+					{
+						x--;
+					}
+				}
+			}
+			else
+			{
+				y--;												// «≥º±¿ß∑Œ
+			}
+
+			if (y < 0)
+			{
+				y = 48;
+			}
+
+			if (boom >= 50)											// Ω√∞£ø¿πŸ ¥ŸΩ√ ªÏæ∆≥≤
+			{
+				color = ª°∞£ªˆ;
+				if (boom >= 70)
+				{
+					bubble = false;
+					e_shape[0] = "°‡°‡";
+					e_shape[1] = "°‡°‡";
+					boom = 0;
+				}
+			}
+
+
+
+			if (Collision::Instance()->CollisionCheck(this->GetRect(), ObjectPoolManager::Instance()->player->GetRect()))		// «≥º±≈Õ∆Æ∏≤
+			{
+				act = false;
+			}
+
 	
+		}
+		timeStep = 0;
+	}
 }
 
 void Enemy::Render()

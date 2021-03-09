@@ -2,7 +2,7 @@
 #include "DoubleBuffer.h"
 #include "ObjectPoolManager.h"
 #include "KeyManager.h"
-
+#include "Collision.h"
 void Player::Initialize()
 {
 	x = 5;
@@ -21,66 +21,75 @@ void Player::Initialize()
 	isGrounded = false;
 	isJump = false;
 
+	health = 3;
+	h_shape = "¢¾¢¾¢¾";
+	test = " ";
+	count = 3;
+
+	stun = false;
 }
    
 void Player::Progress()
 {
 	DWORD dwKey = KeyManager::Instance()->GetKey();
 
-
-	if (dwKey & KEY_UP )
+	if(!stun)
 	{
-		y--;
-		Collision(UP);
-	}
-	if (dwKey & KEY_DOWN)
-	{
-		y++;
-		Collision(DOWN);
-	}
-	if (dwKey & KEY_LEFT )
-	{
-		bulletDir = 0;
-		x--;
-		Collision(LEFT);
-	}
-	if (dwKey & KEY_RIGHT)
-	{
-		bulletDir = 1;
-		x++;
-		Collision(RIGHT);
-	}
-
-	if ((dwKey & KEY_SPACE) && isGrounded )
-	{
-		jump = true;
- 		t = 0;
-	}
-
-	if (dwKey & KEY_RETURN)
-	{
-		for (int i = 0; i < 5; i++)
+		if (dwKey & KEY_UP)
 		{
-			if (!(ObjectPoolManager::Instance()->bullet[i]->act))
+			y--;
+			Collision(UP);
+		}
+		if (dwKey & KEY_DOWN)
+		{
+			y++;
+			Collision(DOWN);
+		}
+		if (dwKey & KEY_LEFT)
+		{
+			bulletDir = 0;
+			x--;
+			Collision(LEFT);
+		}
+		if (dwKey & KEY_RIGHT)
+		{
+			bulletDir = 1;
+			x++;
+			Collision(RIGHT);
+		}
+
+		if ((dwKey & KEY_SPACE) && isGrounded)
+		{
+			jump = true;
+			t = 0;
+		}
+
+		if (dwKey & KEY_RETURN)
+		{
+			for (int i = 0; i < 5; i++)
 			{
-				switch (bulletDir)
+				if (!(ObjectPoolManager::Instance()->bullet[i]->act))
 				{
-				case 0:
-					ObjectPoolManager::Instance()->bullet[i]->x = x - 1;
-					ObjectPoolManager::Instance()->bullet[i]->y = y;
-					ObjectPoolManager::Instance()->bullet[i]->bulletDir = 0;
-					break;
-				case 1:
-					ObjectPoolManager::Instance()->bullet[i]->x = x + 2;
-					ObjectPoolManager::Instance()->bullet[i]->y = y;
-					ObjectPoolManager::Instance()->bullet[i]->bulletDir = 1;
+					switch (bulletDir)
+					{
+					case 0:
+						ObjectPoolManager::Instance()->bullet[i]->x = x - 1;
+						ObjectPoolManager::Instance()->bullet[i]->y = y;
+						ObjectPoolManager::Instance()->bullet[i]->bulletDir = 0;
+						break;
+					case 1:
+						ObjectPoolManager::Instance()->bullet[i]->x = x + 2;
+						ObjectPoolManager::Instance()->bullet[i]->y = y;
+						ObjectPoolManager::Instance()->bullet[i]->bulletDir = 1;
+						break;
+					}
+					ObjectPoolManager::Instance()->bullet[i]->act = true;
 					break;
 				}
-				ObjectPoolManager::Instance()->bullet[i]->act = true;
-				break;
 			}
 		}
 	}
+
 
 
 
@@ -154,10 +163,6 @@ void Player::Progress()
 		}
 
 	}
-
-	
-
-
 	if (((ObjectPoolManager::Instance()->CheckMap(x, y + 2) == 1
 		|| ObjectPoolManager::Instance()->CheckMap(x + 1, y + 2) == 1)
 		&& (ObjectPoolManager::Instance()->CheckMap(x, y + 3) == 1
@@ -170,11 +175,66 @@ void Player::Progress()
 	{
 		isGrounded = false;
 	}
-	
-
 	if (y > 48)
 	{
 		y = 3;
+	}
+
+
+	count++;
+	if (Collision::Instance()->CollisionCheck(this->GetRect(), ObjectPoolManager::Instance()->enemy->GetRect()))		// Ç³¼±ÅÍÆ®¸²
+	{
+		if (count > 20)
+		{
+			if ((x + 1 == ObjectPoolManager::Instance()->enemy->x)
+				&& y == ObjectPoolManager::Instance()->enemy->y)
+			{
+				test = "Right";
+				
+				x--;
+				for (int i = 0; i < 20; i++)
+				{
+					stun = true;
+				}
+				stun = false;
+			}
+			else if ((x == ObjectPoolManager::Instance()->enemy->x + 1)
+				&& y == ObjectPoolManager::Instance()->enemy->y)
+			{
+				test = "Left ";
+				x++;
+				for (int i = 0; i < 20; i++)
+				{
+					stun = true;
+				}
+				stun = false;
+			}
+				
+
+			health--;
+			switch (health)
+			{
+			case 3:
+				h_shape = "¢¾¢¾¢¾";
+
+				break;
+			case 2:
+				h_shape = "¢¾¢¾¢½";
+
+				break;
+			case 1:
+				h_shape = "¢¾¢½¢½";
+
+				break;
+			case 0:
+				h_shape = "¢½¢½¢½";
+				act = false;
+				break;
+			}
+			count = 0;
+		}
+		
+		
 	}
 }
 
@@ -182,6 +242,10 @@ void Player::Render()
 {
 	for(int i = 0; i< 2; i++)
 		DoubleBuffer::Instance()->WriteBuffer(x, y+i, p_shape[i], color);
+
+	DoubleBuffer::Instance()->WriteBuffer(3, 50, h_shape, ¹àÀº»¡°£»ö);
+
+	DoubleBuffer::Instance()->WriteBuffer(8, 50, test, ¹àÀº»¡°£»ö);
 }
 
 void Player::Release()
