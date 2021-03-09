@@ -61,6 +61,12 @@
     <Filter Include="소스 파일\03Object\Bullet">
       <UniqueIdentifier>{464faf0a-d6aa-4794-928a-728295caaa8a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\03Map">
+      <UniqueIdentifier>{ddbbf8e0-f5ae-40c1-8794-7a194f41ac5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03Map\Stage1">
+      <UniqueIdentifier>{cf4c0d11-76ed-4320-97a0-84b26d6dd1c8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h">
@@ -108,6 +114,12 @@
     <ClInclude Include="Bullet.h">
       <Filter>소스 파일\03Object\Bullet</Filter>
     </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>소스 파일\03Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage1.h">
+      <Filter>소스 파일\03Map\Stage1</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Scene.cpp">
@@ -154,6 +166,12 @@
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
       <Filter>소스 파일\03Object\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>소스 파일\03Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage1.cpp">
+      <Filter>소스 파일\03Map\Stage1</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

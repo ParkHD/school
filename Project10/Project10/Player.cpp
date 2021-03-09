@@ -3,13 +3,14 @@
 #include "ObjectPoolManager.h"
 #include "KeyManager.h"
 #include "Collision.h"
+#include"SceneManager.h"
 void Player::Initialize()
 {
 	x = 5;
 	y = 5;
 	p_shape[0] = "¡Ú¡Ú";
 	p_shape[1] = "¡Ú¡Ú";
-	color = ¹àÀºÆÄ¶õ»ö;
+	color = ¹àÀºÃÊ·Ï»ö;
 
 
 	t = 0.0f;
@@ -23,72 +24,69 @@ void Player::Initialize()
 
 	health = 3;
 	h_shape = "¢¾¢¾¢¾";
-	test = " ";
-	count = 3;
+	count = 50;
 
 	stun = false;
+	stunTime = 0;
+
+	hitTime = 0;
+	hitDir = 0;
+
+	act = true;
 }
    
 void Player::Progress()
 {
 	DWORD dwKey = KeyManager::Instance()->GetKey();
+	if (act) {
+		if (!stun)
+		{
+		
 
-	if(!stun)
-	{
-		if (dwKey & KEY_UP)
-		{
-			y--;
-			Collision(UP);
-		}
-		if (dwKey & KEY_DOWN)
-		{
-			y++;
-			Collision(DOWN);
-		}
-		if (dwKey & KEY_LEFT)
-		{
-			bulletDir = 0;
-			x--;
-			Collision(LEFT);
-		}
-		if (dwKey & KEY_RIGHT)
-		{
-			bulletDir = 1;
-			x++;
-			Collision(RIGHT);
-		}
-
-		if ((dwKey & KEY_SPACE) && isGrounded)
-		{
-			jump = true;
-			t = 0;
-		}
-
-		if (dwKey & KEY_RETURN)
-		{
-			for (int i = 0; i < 5; i++)
+			if (dwKey & KEY_LEFT)
 			{
-				if (!(ObjectPoolManager::Instance()->bullet[i]->act))
+				bulletDir = 0;
+				x--;
+				Collision(LEFT);
+			}
+			if (dwKey & KEY_RIGHT)
+			{
+				bulletDir = 1;
+				x++;
+				Collision(RIGHT);
+			}
+
+			if ((dwKey & KEY_UP) && isGrounded)
+			{
+				jump = true;
+				t = 0;
+			}
+
+			if (dwKey & KEY_SPACE)
+			{
+				for (int i = 0; i < 5; i++)
 				{
-					switch (bulletDir)
+					if (!(ObjectPoolManager::Instance()->bullet[i]->act))
 					{
-					case 0:
-						ObjectPoolManager::Instance()->bullet[i]->x = x - 1;
-						ObjectPoolManager::Instance()->bullet[i]->y = y;
-						ObjectPoolManager::Instance()->bullet[i]->bulletDir = 0;
-						break;
-					case 1:
-						ObjectPoolManager::Instance()->bullet[i]->x = x + 2;
-						ObjectPoolManager::Instance()->bullet[i]->y = y;
-						ObjectPoolManager::Instance()->bullet[i]->bulletDir = 1;
+						switch (bulletDir)
+						{
+						case 0:
+							ObjectPoolManager::Instance()->bullet[i]->x = x - 1;
+							ObjectPoolManager::Instance()->bullet[i]->y = y;
+							ObjectPoolManager::Instance()->bullet[i]->bulletDir = 0;
+							break;
+						case 1:
+							ObjectPoolManager::Instance()->bullet[i]->x = x + 2;
+							ObjectPoolManager::Instance()->bullet[i]->y = y;
+							ObjectPoolManager::Instance()->bullet[i]->bulletDir = 1;
+							break;
+						}
+						ObjectPoolManager::Instance()->bullet[i]->act = true;
 						break;
 					}
-					ObjectPoolManager::Instance()->bullet[i]->act = true;
-					break;
 				}
 			}
 		}
-	}
 
 
 
@@ -97,155 +95,235 @@ void Player::Progress()
 
 
 
-	if (jump)									// Á¡ÇÁÈÄ Áß·ÂÀ¸·Î ¶³¾îÁú‹š
-	{
-		v0 = 1.5f;
-		t += 0.05f;
-		float h = -v0 * t + (0.5 * G * t * t);
-		if (h >= 2)
-			h = 2;
-		else if (h <= -2)
-			h = -2;
-		y += h; 
-
-
-		if (h >= 0)
+		if (jump)									// Á¡ÇÁÈÄ Áß·ÂÀ¸·Î ¶³¾îÁú‹š
 		{
-			if (ObjectPoolManager::Instance()->CheckMap(x, y + 2) == 1
-				|| ObjectPoolManager::Instance()->CheckMap(x + 1, y + 2) == 1
-				&& (ObjectPoolManager::Instance()->CheckMap(x, y + 3) == 1
-				|| ObjectPoolManager::Instance()->CheckMap(x + 1, y + 3) == 1))
-			{
-				jump = false;
-				v0 = 0;
-				t = 0;
-				while (ObjectPoolManager::Instance()->CheckMap(x, y) == 1					// ¶¥¿¡ ÃÄ¹ÚÈú¶§
-					|| ObjectPoolManager::Instance()->CheckMap(x, y + 1) == 1
-					|| ObjectPoolManager::Instance()->CheckMap(x + 1, y) == 1
-					|| ObjectPoolManager::Instance()->CheckMap(x + 1, y + 1) == 1)
-				{
-
-					y--;
-				}
-			}
-		}
-	}
-	else if(!jump)
-	{
-		if(!isGrounded)									// Áß·ÂÀ¸·Î ¶³¾îÁú½Ã
-		{
-			t += 1.0f;
-			float h = 0.5 * G * t * t;
- 		  	
+			v0 = 1.5f;
+			t += 0.05f;
+			float h = -v0 * t + (0.5 * G * t * t);
 			if (h >= 2)
 				h = 2;
 			else if (h <= -2)
 				h = -2;
 			y += h;
-		}
-		if (h >= 0)
-		{
-			if (ObjectPoolManager::Instance()->CheckMap(x, y + 2) == 1
-				|| ObjectPoolManager::Instance()->CheckMap(x + 1, y + 2) == 1
-				&& (ObjectPoolManager::Instance()->CheckMap(x, y + 3) == 1
-					|| ObjectPoolManager::Instance()->CheckMap(x + 1, y + 3) == 1))
-			{
-				t = 0;
-				while (ObjectPoolManager::Instance()->CheckMap(x, y) == 1					// ¶¥¿¡ ÃÄ¹ÚÈú¶§
-					|| ObjectPoolManager::Instance()->CheckMap(x, y + 1) == 1
-					|| ObjectPoolManager::Instance()->CheckMap(x + 1, y) == 1
-					|| ObjectPoolManager::Instance()->CheckMap(x + 1, y + 1) == 1)
-				{
 
-					y--;
+
+			if (h >= 0)
+			{
+				if (ObjectPoolManager::Instance()->CheckMap(x, y + 2) == 1
+					|| ObjectPoolManager::Instance()->CheckMap(x + 1, y + 2) == 1
+					&& (ObjectPoolManager::Instance()->CheckMap(x, y + 3) == 1
+						|| ObjectPoolManager::Instance()->CheckMap(x + 1, y + 3) == 1))
+				{
+					jump = false;
+					v0 = 0;
+					t = 0;
+					while (ObjectPoolManager::Instance()->CheckMap(x, y) == 1					// ¶¥¿¡ ÃÄ¹ÚÈú¶§
+						|| ObjectPoolManager::Instance()->CheckMap(x, y + 1) == 1
+						|| ObjectPoolManager::Instance()->CheckMap(x + 1, y) == 1
+						|| ObjectPoolManager::Instance()->CheckMap(x + 1, y + 1) == 1)
+					{
+
+						y--;
+					}
 				}
 			}
 		}
-
-	}
-	if (((ObjectPoolManager::Instance()->CheckMap(x, y + 2) == 1
-		|| ObjectPoolManager::Instance()->CheckMap(x + 1, y + 2) == 1)
-		&& (ObjectPoolManager::Instance()->CheckMap(x, y + 3) == 1
-			|| ObjectPoolManager::Instance()->CheckMap(x + 1, y + 3) == 1))
-		&& (h >= 0))	 // ¶¥¿¡ ÀÖÀ»¶§ 
-	{
-		isGrounded = true;
-	}
-	else
-	{
-		isGrounded = false;
-	}
-	if (y > 48)
-	{
-		y = 3;
-	}
-
-
-	count++;
-	if (Collision::Instance()->CollisionCheck(this->GetRect(), ObjectPoolManager::Instance()->enemy->GetRect()))		// Ç³¼±ÅÍÆ®¸²
-	{
-		if (count > 20)
+		else if (!jump)
 		{
-			if ((x + 1 == ObjectPoolManager::Instance()->enemy->x)
-				&& y == ObjectPoolManager::Instance()->enemy->y)
+			if (!isGrounded)									// Áß·ÂÀ¸·Î ¶³¾îÁú½Ã
 			{
-				test = "Right";
-				
-				x--;
-				for (int i = 0; i < 20; i++)
+				t += 1.0f;
+				float h = 0.5 * G * t * t;
+
+				if (h >= 2)
+					h = 2;
+				else if (h <= -2)
+					h = -2;
+				y += h;
+			}
+			if (h >= 0)
+			{
+				if (ObjectPoolManager::Instance()->CheckMap(x, y + 2) == 1
+					|| ObjectPoolManager::Instance()->CheckMap(x + 1, y + 2) == 1
+					&& (ObjectPoolManager::Instance()->CheckMap(x, y + 3) == 1
+						|| ObjectPoolManager::Instance()->CheckMap(x + 1, y + 3) == 1))
 				{
-					stun = true;
+					t = 0;
+					while (ObjectPoolManager::Instance()->CheckMap(x, y) == 1					// ¶¥¿¡ ÃÄ¹ÚÈú¶§
+						|| ObjectPoolManager::Instance()->CheckMap(x, y + 1) == 1
+						|| ObjectPoolManager::Instance()->CheckMap(x + 1, y) == 1
+						|| ObjectPoolManager::Instance()->CheckMap(x + 1, y + 1) == 1)
+					{
+
+						y--;
+					}
 				}
-				stun = false;
 			}
-			else if ((x == ObjectPoolManager::Instance()->enemy->x + 1)
-				&& y == ObjectPoolManager::Instance()->enemy->y)
-			{
-				test = "Left ";
-				x++;
-				for (int i = 0; i < 20; i++)
+
+		}
+		if (((ObjectPoolManager::Instance()->CheckMap(x, y + 2) == 1
+			|| ObjectPoolManager::Instance()->CheckMap(x + 1, y + 2) == 1)
+			&& (ObjectPoolManager::Instance()->CheckMap(x, y + 3) == 1
+				|| ObjectPoolManager::Instance()->CheckMap(x + 1, y + 3) == 1))
+			&& (h >= 0))	 // ¶¥¿¡ ÀÖÀ»¶§ 
+		{
+			isGrounded = true;
+		}
+		else
+		{
+			isGrounded = false;
+		}
+		if (y > 48)
+		{
+			y = 3;
+		}
+
+
+		count++;
+		if (count > 50)
+		{
+			p_shape[0] = "¡Ú¡Ú";
+			p_shape[1] = "¡Ú¡Ú";
+			hitTime = 0;
+		}
+		else if (count <= 50)
+		{
+			for (int i = 0; i < 5; i++) {
+				if (ObjectPoolManager::Instance()->enemy[i]->act)
 				{
-					stun = true;
+					hitTime++;
+					p_shape[0] = "¡Ù¡Ù";
+					p_shape[1] = "¡Ù¡Ù";
+					if ((x + 1 == ObjectPoolManager::Instance()->enemy[i]->x)
+						&& y == ObjectPoolManager::Instance()->enemy[i]->y)
+					{
+						hitDir = 1;
+					}
+					else if ((x == ObjectPoolManager::Instance()->enemy[i]->x + 1)
+						&& y == ObjectPoolManager::Instance()->enemy[i]->y)
+					{
+						hitDir = 0;
+					}
+
+					stunTime++;
+					if (stunTime > 40)
+					{
+						stun = false;
+						stunTime = 0;
+					}
+					if (hitTime < 4)
+					{
+						stunTime++;
+						stun = true;
+
+						y--;
+						switch (hitDir)
+						{
+						case 1:
+							x--;
+							Collision(LEFT);
+							break;
+						case 0:
+							x++;
+							Collision(RIGHT);
+							break;
+						}
+					}
+
 				}
-				stun = false;
 			}
-				
 
-			health--;
-			switch (health)
-			{
-			case 3:
-				h_shape = "¢¾¢¾¢¾";
+		}
+		for (int i = 0; i < 5; i++)
+		{
+			if (ObjectPoolManager::Instance()->enemy[i]->act) {
+				if (Collision::Instance()->CollisionCheck(this->GetRect(), ObjectPoolManager::Instance()->enemy[i]->GetRect()))		// ÇÇ°Ý
+				{
+					if (count > 50)
+					{
+						health--;
+						switch (health)
+						{
+						case 3:
+							h_shape = "¢¾¢¾¢¾";
 
-				break;
-			case 2:
-				h_shape = "¢¾¢¾¢½";
+							break;
+						case 2:
+							h_shape = "¢¾¢¾¢½";
 
-				break;
-			case 1:
-				h_shape = "¢¾¢½¢½";
+							break;
+						case 1:
+							h_shape = "¢¾¢½¢½";
 
-				break;
-			case 0:
-				h_shape = "¢½¢½¢½";
-				act = false;
-				break;
+							break;
+						case 0:
+							h_shape = "¢½¢½¢½";
+							act = false;
+
+							break;
+						}
+						count = 0;
+					}
+				}
 			}
+		}
+	}
+	if (!act)
+	{
+		if (dwKey & KEY_UP)
+		{
 			count = 0;
 		}
-		
-		
+		if (dwKey & KEY_DOWN)
+		{
+			count = 1;
+		}
+		if (dwKey & KEY_RETURN)
+		{
+			switch (count)
+			{
+
+			case 0:
+				SceneManager::Instance()->Initialize(STAGE);
+				break;
+			case 1:
+				SceneManager::Instance()->Initialize(MENU);
+				break;
+			}
+		}
 	}
+
+
 }
 
 void Player::Render()
 {
-	for(int i = 0; i< 2; i++)
-		DoubleBuffer::Instance()->WriteBuffer(x, y+i, p_shape[i], color);
+	
+
+	if (act)
+	{
+		for (int i = 0; i < 2; i++)
+			DoubleBuffer::Instance()->WriteBuffer(x, y + i, p_shape[i], color);
+	}
 
 	DoubleBuffer::Instance()->WriteBuffer(3, 50, h_shape, ¹àÀº»¡°£»ö);
+	if (!act)
+	{
+		switch (count)
+		{
+		case 0:
+			DoubleBuffer::Instance()->WriteBuffer(22, 22, "¢º  RETRY", ¹àÀº»¡°£»ö);
+			DoubleBuffer::Instance()->WriteBuffer(22, 25, "    MENU", ¹àÀº»¡°£»ö);
+		
+			break;
+		case 1:
+			DoubleBuffer::Instance()->WriteBuffer(22, 22, "    RETRY", ¹àÀº»¡°£»ö);
+			DoubleBuffer::Instance()->WriteBuffer(22, 25, "¢º  MENU", ¹àÀº»¡°£»ö);
 
-	DoubleBuffer::Instance()->WriteBuffer(8, 50, test, ¹àÀº»¡°£»ö);
+			break;
+		}
+	}
+
 }
 
 void Player::Release()

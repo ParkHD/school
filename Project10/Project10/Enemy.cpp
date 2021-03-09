@@ -10,8 +10,8 @@ void Enemy::Initialize()
 	color = 밝은빨간색;
 
 	shape_size = 2;
-	e_shape[0] = "□□";
-	e_shape[1] = "□□";
+	e_shape[0] = "★★";
+	e_shape[1] = "★★";
 
 	t = 0.0f;
 	h = y;
@@ -31,75 +31,66 @@ void Enemy::Initialize()
 
 void Enemy::Progress()
 {
+	if (ObjectPoolManager::Instance()->CheckMap(x, y + 2) == 1
+		|| ObjectPoolManager::Instance()->CheckMap(x + 1, y + 2) == 1)		// 땅에 있을때 
+	{
+		t = 0;
+		isGrounded = true;
+	}
+	else
+	{
+		isGrounded = false;
+	}
+
+	if (!isGrounded && !bubble)
+	{
+		t += 0.03f;
+		float h = 0.5 * G * t * t;
+		y += h;
+		if (h > 2)																// 중력 수치제한
+		{
+			h = 2;
+		}
+		else if (h < -2)
+		{
+			h = -2;
+		}
+	}
+	while (ObjectPoolManager::Instance()->CheckMap(x, y) == 1					// 땅에 쳐박힘 방지
+		|| ObjectPoolManager::Instance()->CheckMap(x, y + 1) == 1
+		|| ObjectPoolManager::Instance()->CheckMap(x + 1, y) == 1
+		|| ObjectPoolManager::Instance()->CheckMap(x + 1, y + 1) == 1)
+	{
+		y--;
+	}
+
+	if (act && !bubble)
+	{
+		for (int i = 0; i < 5; i++)
+		{
+			if (ObjectPoolManager::Instance()->bullet[i]->x >= x
+				&& ObjectPoolManager::Instance()->bullet[i]->x <= x + 1
+				&& ObjectPoolManager::Instance()->bullet[i]->y >= y
+				&& ObjectPoolManager::Instance()->bullet[i]->y <= y + 1)
+			{
+
+				e_shape[0] = " ●●";
+				e_shape[1] = " ●●";
+
+				bubble = true;
+				act = false;
+				color = 파란색;
+
+			
+			}
+		}
+	}
 	timeStep++;
-	if (timeStep > 10) 
+	if (timeStep > 3) 
 	{
 		if (act && !bubble)
 		{
-			
-			for (int i = 0; i < 5; i++)
-			{
-				if (ObjectPoolManager::Instance()->bullet[i]->x >= x
-					&& ObjectPoolManager::Instance()->bullet[i]->x <= x + 1
-					&& ObjectPoolManager::Instance()->bullet[i]->y >= y
-					&& ObjectPoolManager::Instance()->bullet[i]->y  <= y + 1)
-				{
-
-					e_shape[0] = " ●●";
-					e_shape[1] = " ●●";
-
-					bubbleDir = rand() % 2;
-					bubble = true;
-
-					color = 밝은노란색;
-
-					switch (bubbleDir)
-					{
-					case 0:
-						break;
-					case 1:
-						break;
-					}
-				}
-			}
-	
-
-			if (ObjectPoolManager::Instance()->CheckMap(x, y + 2) == 1
-				|| ObjectPoolManager::Instance()->CheckMap(x + 1, y + 2) == 1)		// 땅에 있을때 
-			{
-				t = 0;
-				isGrounded = true;
-			}
-			else
-			{
-				isGrounded = false;
-			}
-
-			if (!isGrounded)
-			{
-				t += 0.03f;
-				float h = 0.5 * G * t * t;
-				y += h;
-				if (h > 2)																// 중력 수치제한
-				{
-					h = 2;
-				}
-				else if (h < -2)
-				{
-					h = -2;
-				}
-			}
-			while (ObjectPoolManager::Instance()->CheckMap(x, y) == 1					// 땅에 쳐박힐때
-				|| ObjectPoolManager::Instance()->CheckMap(x, y + 1) == 1
-				|| ObjectPoolManager::Instance()->CheckMap(x + 1, y) == 1
-				|| ObjectPoolManager::Instance()->CheckMap(x + 1, y + 1) == 1)
-			{
-				y--;
-			}
-
-
-
-			/*step++;
+			step++;
 			if (step > maxStep)
 			{
 				maxStep = rand() % 10 + 5;
@@ -135,7 +126,7 @@ void Enemy::Progress()
 					}
 					break;
 				}
-			}*/
+			}
 
 			if (y > 48)															// 구멍 떨어졌을때
 				y = 3;
@@ -148,9 +139,6 @@ void Enemy::Progress()
 		//	y = 3;
 		//	act = true;
 		//}
-
-
-
 		if (bubble)
 		{
 			boom++;
@@ -168,7 +156,7 @@ void Enemy::Progress()
 				else if (bubbleDir == 1)
 				{
 					x++;
-					if (ObjectPoolManager::Instance()->CheckMap(x + 1, y) == 1)
+					if (ObjectPoolManager::Instance()->CheckMap(x + 2, y) == 1)
 					{
 						x--;
 					}
@@ -176,6 +164,15 @@ void Enemy::Progress()
 			}
 			else
 			{
+				bubbleDir = rand() % 2;
+				switch (bubbleDir)
+				{
+				case 0:
+					break;
+				case 1:
+					break;
+				}
+
 				y--;												// 풍선위로
 			}
 
@@ -184,26 +181,28 @@ void Enemy::Progress()
 				y = 48;
 			}
 
-			if (boom >= 50)											// 시간오바 다시 살아남
+			if (boom >= 40)											// 시간오바 다시 살아남
 			{
-				color = 빨간색;
-				if (boom >= 70)
+				color = 노란색;
+				if (boom >= 60)
 				{
-					bubble = false;
-					e_shape[0] = "□□";
-					e_shape[1] = "□□";
-					boom = 0;
+					color = 빨간색;
+					if (boom >= 70)
+					{
+						act = true;
+						bubble = false;
+						color = 밝은빨간색;
+						e_shape[0] = "★★";
+						e_shape[1] = "★★";
+						boom = 0;
+					}
 				}
 			}
-
-
-
 			if (Collision::Instance()->CollisionCheck(this->GetRect(), ObjectPoolManager::Instance()->player->GetRect()))		// 풍선터트림
 			{
+				bubble = false;
 				act = false;
 			}
-
-	
 		}
 		timeStep = 0;
 	}
@@ -212,7 +211,7 @@ void Enemy::Progress()
 void Enemy::Render()
 {
 	
-	if (act)
+	if (act || bubble)
 	{
 		for (int i = 0; i < shape_size; i++)
 		{
@@ -221,7 +220,6 @@ void Enemy::Render()
 	}
 
 }
-
 void Enemy::Release()
 {
 

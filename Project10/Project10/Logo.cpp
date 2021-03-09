@@ -3,6 +3,7 @@
 #include"SceneManager.h"
 #include"WindowController.h"
 #include "DoubleBuffer.h"
+
 void Logo::Initialize()
 {
 }
@@ -23,10 +24,13 @@ void Logo::Render()
 		{
 			switch (map[y][x])
 			{
-			case 0:
-				break;
 			case 1:
-				DoubleBuffer::Instance()->WriteBuffer(x, y, "■", 13);
+				break;
+			case 0:
+				if(y<25)
+					DoubleBuffer::Instance()->WriteBuffer(x, y, "■", 밝은파란색);
+				else
+					DoubleBuffer::Instance()->WriteBuffer(x, y, "■", 밝은초록색);
 				break;
 			default:
 				break;

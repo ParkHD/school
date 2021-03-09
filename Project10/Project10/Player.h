@@ -23,9 +23,11 @@ private:
 
     int count;
 
-    const char* test;
-
     bool stun;
+    int stunTime;
+
+    int hitTime;
+    int hitDir;
 public:
     virtual void Initialize();
     virtual void Progress();

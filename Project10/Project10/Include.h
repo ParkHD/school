@@ -41,7 +41,7 @@ enum DIR
 };
 
 #define BufferWidth 120
-#define BufferHeight 80
+#define BufferHeight 60
 
 const DWORD KEY_UP	    = 0x00000001;
 const DWORD KEY_DOWN	= 0x00000002;

@@ -24,5 +24,8 @@ int main()
 	SceneManager::Instance()->Release();
 	DoubleBuffer::Instance()->DestroyBuffer();
 
+
+	int map[3];
+
 	return 0;
 }

@@ -1,39 +1,6 @@
-﻿  Bullet.cpp
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Object.h(26,22): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Object.h(26,25): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Object.h(26,30): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Object.h(26,37): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-  Enemy.cpp
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Object.h(26,22): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Object.h(26,25): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Object.h(26,30): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Object.h(26,37): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Enemy.cpp(81,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Enemy.cpp(82,11): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-  Object.cpp
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Object.h(26,22): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Object.h(26,25): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Object.h(26,30): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Object.h(26,37): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-  ObjectPoolManager.cpp
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Object.h(26,22): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Object.h(26,25): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Object.h(26,30): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Object.h(26,37): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-  Player.cpp
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Object.h(26,22): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Object.h(26,25): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Object.h(26,30): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Object.h(26,37): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Player.cpp(104,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Player.cpp(109,9): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Player.cpp(138,12): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Player.cpp(144,10): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-  Stage.cpp
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Object.h(26,22): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Object.h(26,25): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Object.h(26,30): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Object.h(26,37): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-  Generating Code...
-C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\Project10\Object.cpp(35): warning C4715: 'Object::Collision': not all control paths return a value
-  Project10.vcxproj -> C:\Users\G-18\Downloads\school-main (1)\school-main\Project10\x64\Debug\Project10.exe
+﻿  ObjectPoolManager.cpp
+C:\Users\guseh\Downloads\school-main\Project10\Project10\Object.h(26,22): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\guseh\Downloads\school-main\Project10\Project10\Object.h(26,25): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\guseh\Downloads\school-main\Project10\Project10\Object.h(26,30): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\guseh\Downloads\school-main\Project10\Project10\Object.h(26,37): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+  Project10.vcxproj -> C:\Users\guseh\Downloads\school-main\Project10\x64\Debug\Project10.exe
